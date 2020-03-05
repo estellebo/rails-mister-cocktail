@@ -1,0 +1,33 @@
+<h2 class="text-center"><%= @cocktail.name %></h2>
+</br></br>
+
+<div class="d-flex justify-content-between">
+  <div>
+    <h3>Ingredients</h3></br>
+  </div>
+
+  <div>
+    <h3>Doses</h3></br>
+  </div>
+</div>
+
+<% @cocktail.doses.each do |dose| %>
+  <div class="d-flex justify-content-between">
+    <div>
+      <%= dose.ingredient.name %>
+    </div>
+    <div>
+      <%= dose.description %>
+      <span><%= link_to cocktail_dose_path(dose), class: 'text-danger',
+                method: :delete,
+                data: { confirm: "Are you sure?" } do %>
+                <i class="fas fa-trash"></i>
+                <% end %>
+      </span>
+    </div>
+  </div>
+<% end %>
+
+</br></br>
+
+<%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-outline-danger" %>
