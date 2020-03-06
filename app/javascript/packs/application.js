@@ -26,3 +26,6 @@ initSweetAlert();
 
 
 console.log('Hello World from Webpacker')
+
+
+
