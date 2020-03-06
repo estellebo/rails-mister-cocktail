@@ -38,3 +38,24 @@
   align-items: center;
 }
 
+.carousel-item {
+  position: relative;
+}
+
+/* Bottom right text */
+.text-block {
+  position: absolute;
+  bottom: 406px;
+  right: 437px;
+}
+
+.mini-text-block {
+  position: absolute;
+    bottom: 77px;
+    right: 63px;
+}
+
+img{
+  width: 100%;
+}
+
