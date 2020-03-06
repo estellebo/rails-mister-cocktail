@@ -1,4 +1,4 @@
-<h2 class="text-center"><%= @cocktail.name %></h2>
+<div class="text-center text-uppercase font-weight-bold text-white picture" style="height: 400px; font-size: 60px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fill %>'); background-size: cover; background-position: center center;"> <%= @cocktail.name %></div>
 </br></br>
 
 <div class="d-flex justify-content-between">
@@ -27,7 +27,6 @@
     </div>
   </div>
 <% end %>
-<%= cl_image_tag @cocktail.photo.key, height: 300, width: 400, crop: :fill %>
 </br></br>
 
 <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-outline-danger" %>

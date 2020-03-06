@@ -8,11 +8,18 @@
   <% @cocktails.each do |cocktail| %>
   <div class="card rounded shadow-sm p-0 col-lg-3 col-md-4 col-sm-8 col-8 mr-1 mb-5">
       <div><%= link_to cocktail_path(cocktail) do %>
-      <div class="bg-light picture" style="height: 160px; background-image: url('https://source.unsplash.com/random'); background-size: cover; background-position: center center;"> <h3 class="text-center text-uppercase font-weight-bold text-white">
+        <% if cocktail.photo.attached? %>
+          <div class="bg-light picture" style="height: 200px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path cocktail.photo.key, height: 300, width: 400, crop: :fill %>'); background-size: cover; background-position: center center;"> <h3 class="text-center text-uppercase font-weight-bold text-white">
+            <%= cocktail.name %>
+          </div>
+        <% else %>
+        <div class="bg-secondary picture" style="height: 200px;"> <h3 class="text-center text-uppercase font-weight-bold text-white">
           <%= cocktail.name %>
-      </div>
+        </div>
+        <% end %>
       <% end %>
     </div>
   </div>
   <% end %>
 </div>
+
