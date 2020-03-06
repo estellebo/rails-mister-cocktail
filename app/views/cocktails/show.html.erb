@@ -1,32 +1,40 @@
-<div class="text-center text-uppercase font-weight-bold text-white picture" style="height: 400px; font-size: 60px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fill %>'); background-size: cover; background-position: center center;"> <%= @cocktail.name %></div>
-</br></br>
+<div>
+  <% if @cocktail.photo.attached? %>
+    <div class="text-center text-uppercase font-weight-bold text-white picture" style="height: 400px; font-size: 60px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @cocktail.photo.key, height: 300, width: 400, crop: :fill %>'); background-size: cover; background-position: center center;"> <%= @cocktail.name %></div>
+  <% else %>
+    <div class ="text-center" style="font-size: 60px;"> <%= @cocktail.name.upcase %></div>
+    </div>
+  <% end %>
 
-<div class="d-flex justify-content-between">
-  <div>
-    <h3>Ingredients</h3></br>
-  </div>
+  </br></br>
 
-  <div>
-    <h3>Doses</h3></br>
-  </div>
-</div>
-
-<% @cocktail.doses.each do |dose| %>
   <div class="d-flex justify-content-between">
     <div>
-      <%= dose.ingredient.name.capitalize %>
+      <h3>Ingredients</h3></br>
     </div>
+
     <div>
-      <%= dose.description %>
-      <span><%= link_to cocktail_dose_path(dose), class: 'text-danger',
-                method: :delete,
-                data: { confirm: "Are you sure?" } do %>
-                <i class="fas fa-trash"></i>
-                <% end %>
-      </span>
+      <h3>Doses</h3></br>
     </div>
   </div>
-<% end %>
-</br></br>
 
-<%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-outline-danger" %>
+  <% @cocktail.doses.each do |dose| %>
+    <div class="d-flex justify-content-between">
+      <div>
+        <%= dose.ingredient.name.capitalize %>
+      </div>
+      <div>
+        <%= dose.description %>
+        <span><%= link_to cocktail_dose_path(dose), class: 'text-info',
+                  method: :delete,
+                  data: { confirm: "Are you sure?" } do %>
+                  <i class="fas fa-trash"></i>
+                  <% end %>
+        </span>
+      </div>
+    </div>
+  <% end %>
+  </br></br>
+
+  <%= link_to "Add a new dose", new_cocktail_dose_path(@cocktail), class: "btn btn-outline-info" %>
+</div>
