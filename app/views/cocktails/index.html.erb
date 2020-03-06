@@ -1,12 +1,12 @@
 <% if @query %>
-  <h1 class="my-3 ml-4">Our cocktails for '<%= @query %>'... (<%= @cocktails.length %>)</h1>
+  <h2 class="my-3 ml-4">Our cocktails for '<%= @query %>'... (<%= @cocktails.length %>)</h2>
 <% else %>
-  <h1 class="my-3 ml-4">All our cocktails (<%= @cocktails.length %>)</h1>
+  <h2 class="my-3 ml-4">All our cocktails (<%= @cocktails.length %>)</h2>
 <% end %>
 
 <div class="d-flex align-items-center p-2 rounded row justify-content-around">
   <% @cocktails.each do |cocktail| %>
-  <div class="card rounded shadow-sm p-0 col-3 mr-1 mb-5">
+  <div class="card rounded shadow-sm p-0 col-lg-3 col-md-4 col-sm-8 col-8 mr-1 mb-5">
       <div><%= link_to cocktail_path(cocktail) do %>
       <div class="bg-light picture" style="height: 160px; background-image: url('https://source.unsplash.com/random'); background-size: cover; background-position: center center;"> <h3 class="text-center text-uppercase font-weight-bold text-white">
           <%= cocktail.name %>

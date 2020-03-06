@@ -14,7 +14,7 @@
 <% @cocktail.doses.each do |dose| %>
   <div class="d-flex justify-content-between">
     <div>
-      <%= dose.ingredient.name %>
+      <%= dose.ingredient.name.capitalize %>
     </div>
     <div>
       <%= dose.description %>
