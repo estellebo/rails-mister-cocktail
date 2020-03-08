@@ -18,12 +18,11 @@
   </head>
 
   <body>
-    <%= render 'layouts/banner' %>
+      <%= render 'layouts/banner' %>
 
-    <div class="container m-auto w-75 mb-5">
-      <%= yield %>
-
-    </div>
+      <div class="container m-auto w-75">
+        <%= yield %>
+      </div>
 
     <%= javascript_include_tag "application" %> <!-- from app/assets/javascripts/application.js -->
     <%= javascript_pack_tag "application" %>    <!-- from app/javascript/packs/application.js -->
